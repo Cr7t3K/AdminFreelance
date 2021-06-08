@@ -5,11 +5,23 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+import './styles/app.scss';
+
+// For AdminTheme
+import './js/sb-admin-2';
+import 'chart.js'
+import 'jquery.easing'
+
+// Import Jquery & Popover Bootstrap
 const $ = require('jquery');
 require('bootstrap');
 
-// any CSS you import will output into a single css file (app.scss in this case)
-import './styles/app.scss';
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});
+
 
 // start the Stimulus application
 import './bootstrap';
+
+

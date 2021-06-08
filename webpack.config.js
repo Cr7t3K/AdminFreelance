@@ -21,6 +21,8 @@ Encore
      * and one CSS file (e.g. app.scss) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
+    .addEntry('area-demo', './assets/js/demo/chart-area-demo.js')
+    .addEntry('pie-demo', './assets/js/demo/chart-pie-demo.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -69,7 +71,12 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
+
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[name].[ext]',
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
