@@ -39,9 +39,9 @@ class SecurityController extends AbstractController
     public function customLogout(): Response
     {
         $this->addFlash('toast', [
-            'title' => 'À Bientôt',
             'style' => 'success',
-            'message' => 'Vous avez été déconnecté avec succès !',
+            'title' => 'notification.logout.title',
+            'message' => 'notification.logout.message',
         ]);
 
         return $this->redirectToRoute('app_login');
