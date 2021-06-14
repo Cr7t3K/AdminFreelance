@@ -1,9 +1,18 @@
 {% extends 'base.html.twig' %}
+{% import 'components/_toast.html.twig' as macro_toast %}
+
 
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
 <body class="bg-gradient-primary">
+    <!-- Messages Flash Toast -->
+    <div style="position: fixed; bottom: 10px; right: 10px; z-index: 10">
+        {% for toast in app.flashes('toast') %}
+            {{ macro_toast.toast(toast.style, toast.title, toast.message) }}
+        {% endfor %}
+    </div>
+    <!-- End of Messages Flash Toast -->
     <div class="container">
 
         <!-- Outer Row -->

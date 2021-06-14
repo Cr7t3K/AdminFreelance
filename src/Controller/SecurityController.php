@@ -32,4 +32,18 @@ class SecurityController extends AbstractController
     public function logout()
     {
     }
+
+    /**
+     * @Route("/customLogout", name="app_custom_logout")
+     */
+    public function customLogout(): Response
+    {
+        $this->addFlash('toast', [
+            'title' => 'À Bientôt',
+            'style' => 'success',
+            'message' => 'Vous avez été déconnecté avec succès !',
+        ]);
+
+        return $this->redirectToRoute('app_login');
+    }
 }

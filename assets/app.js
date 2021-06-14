@@ -18,8 +18,9 @@ require('bootstrap');
 
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
-});
 
+    $('.toast').toast('show')
+});
 
 // start the Stimulus application
 import './bootstrap';

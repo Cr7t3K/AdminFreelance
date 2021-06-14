@@ -1,3 +1,5 @@
+{% import 'components/_toast.html.twig' as macro_toast %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,26 +29,34 @@
     {% block body %}
     <body id="page-top">
 
-            <!-- Page Wrapper -->
-            <div id="wrapper">
-                {% block wrapper %}
-                    {% include 'components/_left_panel.html.twig' %}
+        <!-- Messages Flash Toast -->
+        <div style="position: fixed; bottom: 10px; right: 5px; z-index: 10">
+            {% for toast in app.flashes('toast') %}
+                    {{ macro_toast.toast(toast.style, toast.title, toast.message) }}
+            {% endfor %}
+        </div>
+        <!-- End of Messages Flash Toast -->
 
-                    <!-- Content Wrapper -->
-                    <div id="content-wrapper" class="d-flex flex-column">
-                        <div id="content">
-                            {% include 'components/_navbar.html.twig' %}
-                            {% block main_content %}{% endblock %}
-                        </div>
-                        {% block footer %}{% include 'components/_footer.html.twig' %}{% endblock %}
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+            {% block wrapper %}
+                {% include 'components/_left_panel.html.twig' %}
+
+                <!-- Content Wrapper -->
+                <div id="content-wrapper" class="d-flex flex-column">
+                    <div id="content">
+                        {% include 'components/_navbar.html.twig' %}
+                        {% block main_content %}{% endblock %}
                     </div>
-                    <!-- End of Content Wrapper -->
+                    {% block footer %}{% include 'components/_footer.html.twig' %}{% endblock %}
+                </div>
+                <!-- End of Content Wrapper -->
 
-                {% endblock %}
-            </div>
-            <!-- End of Page Wrapper -->
+            {% endblock %}
+        </div>
+        <!-- End of Page Wrapper -->
 
-            {% include 'components/_logout_modal.html.twig' %}
+        {% include 'components/_logout_modal.html.twig' %}
     </body>
     {% endblock %}
 
