@@ -27,6 +27,8 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
+        "analyse": "php vendor/bin/phpstan analyse",
+        "grumphp": "php ./vendor/bin/grumphp run",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",

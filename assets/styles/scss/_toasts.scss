@@ -1,0 +1,29 @@
+.toast-success {
+  color: $color-success !important;
+  background-color: $bg-success !important;
+
+  .close {
+    color: $color-success !important;
+  }
+}
+
+.toast-error {
+  color: $color-error !important;
+  background-color: $bg-error !important;
+
+  .close {
+    color: $color-error !important;
+  }
+}
+
+.toast.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: 1s ease-in;
+}
+
+.toast {
+  transform: translateX(110%);
+  min-width: 250px;
+}
