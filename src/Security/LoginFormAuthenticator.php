@@ -5,6 +5,7 @@ namespace App\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Security;
@@ -28,9 +29,12 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     private UrlGeneratorInterface $urlGenerator;
 
-    public function __construct(UrlGeneratorInterface $urlGenerator)
+    private FlashBagInterface $flashBag;
+
+    public function __construct(UrlGeneratorInterface $urlGenerator, FlashBagInterface $flashBag)
     {
         $this->urlGenerator = $urlGenerator;
+        $this->flashBag = $flashBag;
     }
 
     public function authenticate(Request $request): PassportInterface
@@ -50,6 +54,12 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        $this->flashBag->add('toast', [
+            'title' => 'Bienvenue',
+            'style' => 'success',
+            'message' => 'Connecter avec succès !',
+        ]);
+
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
