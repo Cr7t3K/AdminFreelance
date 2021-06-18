@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'page_title.profile.main'|trans }}{% endblock %}
+
+{% block main_content %}
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{{ 'page_title.profile.second'|trans }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header font-weight-bold text-primary">{{ 'profile.title'|trans }}</div>
+                <div class="card-body">
+                    {{ form_start(profileForm) }}
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                {{ form_label(profileForm.firstName,  'profile.firstName'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                                {{ form_widget(profileForm.firstName, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_label(profileForm.lastName, 'profile.lastName'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                                {{ form_widget(profileForm.lastName, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            {{ form_label(profileForm.email, 'profile.email'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                            {{ form_widget(profileForm.email, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_label(profileForm.birthDate, 'profile.birthDate'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                            <div class="input-group">
+                                {{ form_widget(profileForm.birthDate, {'attr': {'class': 'form-control js-datepicker'}}) }}
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-th"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_widget(profileForm.submit, {'label': 'common.save'|trans, 'attr': {'class': 'btn btn-primary'}}) }}
+
+                    {{ form_end(profileForm) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header font-weight-bold text-primary">{{ 'company.title'|trans }}</div>
+                <div class="card-body">
+                    {{ form_start(companyForm) }}
+                        <div class="mb-3">
+                            {{ form_label(companyForm.name,  'company.name'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                            {{ form_widget(companyForm.name, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                {{ form_label(companyForm.createdAt,  'company.createdAt'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                                <div class="input-group">
+                                    {{ form_widget(companyForm.createdAt, {'attr': {'class': 'form-control js-datepicker'}}) }}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-th"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                {{ form_label(companyForm.siret,  'company.siret'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                                {{ form_widget(companyForm.siret, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_label(companyForm.siren,  'company.siren'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                                {{ form_widget(companyForm.siren, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                {{ form_label(companyForm.naf,  'company.naf'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                                {{ form_widget(companyForm.naf, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_label(companyForm.address,  'company.address'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                                {{ form_widget(companyForm.address, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        {{ form_widget(companyForm.submit, {'label': 'common.save'|trans, 'attr': {'class': 'btn btn-primary'}}) }}
+
+                    {{ form_end(companyForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

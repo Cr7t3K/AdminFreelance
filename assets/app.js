@@ -11,15 +11,22 @@ import './styles/app.scss';
 import './js/sb-admin-2';
 import 'chart.js'
 import 'jquery.easing'
+import 'bootstrap-datepicker'
+import 'bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min'
 
 // Import Jquery & Popover Bootstrap
 const $ = require('jquery');
 require('bootstrap');
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('[data-toggle="popover"]').popover();
+    $('.toast').toast('show');
+    $('.js-datepicker').datepicker({
+        language: 'fr',
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+    });
 });
-
 
 // start the Stimulus application
 import './bootstrap';

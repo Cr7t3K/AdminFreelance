@@ -1,0 +1,48 @@
+common:
+  save: Mettre à jour
+
+page_title:
+  index: Accueil
+  login: Connexion
+  profile:
+    main: Profil
+    second: Paramètres du compte - Profil
+
+login:
+  title: Me connecter
+  button: Se connecter
+
+
+notification:
+  login:
+    title: Bienvenue !
+    message: Connexion effectuée avec succès.
+  logout:
+    title: Au revoir !
+    message: Vous avez été déconnecté avec succès.
+  profile:
+    update:
+      title: Succès !
+      message: Votre profil a été mis à jour avec succès.
+  company:
+    update:
+      title: Succès !
+      message: Vos informations entreprises, on été mis à jour avec succès.
+
+
+
+company:
+  title: Entreprise
+  name: Nom de l'entreprise
+  siren: N° de SIREN
+  siret: SIRET
+  naf: NAF
+  createdAt: Date d'immatriculation
+  address: Adresse professionnelle
+
+profile:
+  title: Profile
+  firstName: Prénom
+  lastName: Nom
+  email: Email
+  birthDate: Date de naissance
