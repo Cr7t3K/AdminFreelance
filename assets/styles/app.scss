@@ -3,3 +3,37 @@
 body {
     background-color: lightgray;
 }
+
+table {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    td {
+        border: none !important;
+    }
+    thead {
+        th:first-child {
+            border-top-left-radius: 10px;
+        }
+        th:last-child {
+            border-top-right-radius: 10px;
+        }
+    }
+}
+
+.btn-datatable {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background: #e5e5e5;
+    margin-right: 5px;
+    color: #fff;
+
+    a {
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+}

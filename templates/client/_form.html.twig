@@ -1,0 +1,64 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-xl-5">
+        <div class="card mb-4 mb-xl-0">
+            <div class="card-header font-weight-bold text-primary">{{ 'client.title'|trans }}</div>
+            <div class="card-body">
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
+                        {{ form_label(form.name,  'client.name'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_label(form.contact, 'client.contact'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.contact, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        {{ form_label(form.address, 'client.address'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        {{ form_label(form.email, 'client.email'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="row mb-5"></div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
+                        {{ form_label(form.tva,  'client.tva'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.tva, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_label(form.ape, 'client.ape'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.ape, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-6">
+                        {{ form_label(form.siret,  'client.siret'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.siret, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_label(form.phone, 'client.phone'|trans, { 'label_attr': {'class': 'small mb-1'} }) }}
+                        {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                {{ form_widget(form.submit, {'label': 'common.save'|trans, 'attr': {'class': 'btn btn-primary'}}) }}
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-7">
+        <div class="card mb-4 mb-xl-0">
+{#            <div class="card-header font-weight-bold text-primary"></div>#}
+            <div class="card-body h-100">
+            </div>
+        </div>
+        </div>
+    </div>
+{{ form_end(form)}}

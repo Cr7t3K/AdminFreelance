@@ -1,5 +1,19 @@
 common:
   save: Mettre à jour
+  actions: Actions
+  button:
+    edit: Édition
+    view: Voir
+    delete: Supprimer
+    more: Plus
+    back: Retour
+    new: Nouveau
+
+panel:
+  client:
+    main: Client
+    list: Clients
+    stats: Stastiques
 
 page_title:
   index: Accueil
@@ -7,11 +21,54 @@ page_title:
   profile:
     main: Profil
     second: Paramètres du compte - Profil
+  client:
+    list:
+      main: Clients
+      second: Liste des clients - Clients
+    new:
+      main: Client
+      second: Nouveau client - Client
+    edit:
+      main: Client
+      second: Modification client - %name%
 
 login:
   title: Me connecter
   button: Se connecter
 
+company:
+  title: Entreprise
+  name: Nom de l'entreprise *
+  siren: N° de SIREN *
+  siret: SIRET *
+  naf: NAF *
+  createdAt: Date d'immatriculation *
+  address: Adresse professionnelle *
+
+profile:
+  title: Profile
+  firstName: Prénom *
+  lastName: Nom *
+  email: Email *
+  birthDate: Date de naissance
+
+client:
+  title: Client
+  name: Nom ou raison sociale *
+  address: Adresse *
+  contact: Contact
+  tva: N° de TVA
+  ape: Code APE
+  siret: N° de SIRET *
+  email: Email *
+  phone: N° de téléphone
+  table:
+    title: Liste des clients
+    name: Nom ou raison sociale
+    contact: Contact
+    siret: N° de SIRET
+    tel: N° de téléphone
+    email: Email
 
 notification:
   login:
@@ -28,21 +85,13 @@ notification:
     update:
       title: Succès !
       message: Vos informations entreprises, on été mis à jour avec succès.
-
-
-
-company:
-  title: Entreprise
-  name: Nom de l'entreprise
-  siren: N° de SIREN
-  siret: SIRET
-  naf: NAF
-  createdAt: Date d'immatriculation
-  address: Adresse professionnelle
-
-profile:
-  title: Profile
-  firstName: Prénom
-  lastName: Nom
-  email: Email
-  birthDate: Date de naissance
+  client:
+    new:
+      title: Succès !
+      message: Nouveau client créer avec succès.
+    edit:
+      title: Succès !
+      message: Client modifié avec succès.
+    delete:
+      title: Succès !
+      message: Client supprimé avex succés.
