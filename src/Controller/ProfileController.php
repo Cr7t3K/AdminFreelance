@@ -40,6 +40,7 @@ class ProfileController extends AbstractController
 
         if ($profileForm->isSubmitted() && $profileForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
             $this->addFlash('toast', [
                 'style' => 'success',
                 'title' => 'notification.profile.update.title',
@@ -49,21 +50,24 @@ class ProfileController extends AbstractController
         }
 
         if ($companyForm->isSubmitted() && $companyForm->isValid()) {
+            $manager = $this->getDoctrine()->getManager();
+
             if (null === $company->getUser()) {
                 $company->setUser($user);
             }
+
+            $manager->persist($company);
+            $manager->flush();
+
             $this->addFlash('toast', [
                 'style' => 'success',
                 'title' => 'notification.company.update.title',
                 'message' => 'notification.company.update.message',
             ]);
-            $this->getDoctrine()->getManager()->persist($company);
-            $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('app_profile');
         }
 
-        return $this->render('profile.html.twig', [
+        return $this->render('profile/profile.html.twig', [
             'profileForm' => $profileForm->createView(),
             'companyForm' => $companyForm->createView(),
         ]);

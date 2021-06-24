@@ -10,6 +10,7 @@ import './styles/app.scss';
 // For AdminTheme
 import './js/sb-admin-2';
 import 'chart.js'
+import 'datatables.net-bs4'
 import 'jquery.easing'
 import 'bootstrap-datepicker'
 import 'bootstrap-datepicker/dist/locales/bootstrap-datepicker.fr.min'
@@ -20,6 +21,8 @@ require('bootstrap');
 
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
+    $('[data-toggle="tooltip"]').tooltip();
+    $('#dataTable').DataTable();
     $('.toast').toast('show');
     $('.js-datepicker').datepicker({
         language: 'fr',

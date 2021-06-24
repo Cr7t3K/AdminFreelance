@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'page_title.client.new.main'|trans }}{% endblock %}
+
+{% block main_content %}
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{{ client.name}} - Client</h1>
+            <div class="">
+                <form method="post" class="d-inline-block" name="delete-client" action="{{ path('app_client_delete', {'name': client.name}) }}">
+                    <button type="submit" class="btn btn-danger">{{ 'common.button.delete'|trans }}</button>
+                    <input type="hidden" name="delete-action" value="{{ csrf_token('delete-action') }}">
+                </form>
+                <a href="{{ path('app_client_edit', {'name': client.name }) }}" class="btn btn-success">{{ 'common.button.edit'|trans }}</a>
+                <a href="{{ app.request.headers.get('referer') }}" class="btn btn-secondary ml-2">{{ 'common.button.back'|trans }}</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header font-weight-bold text-primary">{{ client.name }}</div>
+                    <div class="card-body">
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">Name:</label>
+                                <input class="form-control" type="text" value="{{ client.name }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">Contact:</label>
+                                <input class="form-control" type="text" value="{{ client.contact }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label class="small mb-1" for="">{{ 'client.address'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ client.address }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label class="small mb-1" for="">{{ 'client.email'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ client.email }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-5"></div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.tva'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ client.tva }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.ape'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ client.ape }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.siret'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ client.siret }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.phone'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ client.phone }}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

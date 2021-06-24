@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'page_title.client.edit.main'|trans }}{% endblock %}
+
+{% block main_content %}
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{{ 'page_title.client.edit.second'|trans({"%name%": client.name}) }}</h1>
+            <a href="{{ app.request.headers.get('referer') }}" class="btn btn-secondary">{{ 'common.button.back'|trans }}</a>
+        </div>
+        {% include 'client/_form.html.twig' %}
+    </div>
+{% endblock %}
