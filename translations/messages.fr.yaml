@@ -8,12 +8,23 @@ common:
     more: Plus
     back: Retour
     new: Nouveau
+    cancel: Annuler
+
+navbar:
+  profil: Profile
+  logout: Déconnexion
 
 panel:
+  title: Admin
+  dashboard: Dashboard
   client:
     main: Client
     list: Clients
     stats: Stastiques
+  document:
+    main: Documents
+    invoice: Facture
+    quote: Devis
 
 page_title:
   index: Accueil
@@ -62,6 +73,8 @@ client:
   siret: N° de SIRET *
   email: Email *
   phone: N° de téléphone
+  stats:
+    nbr: Nombres de clients
   table:
     title: Liste des clients
     name: Nom ou raison sociale
@@ -95,3 +108,8 @@ notification:
     delete:
       title: Succès !
       message: Client supprimé avex succés.
+
+modal:
+  logout:
+    title: Prêt à partir ?
+    message: Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.
