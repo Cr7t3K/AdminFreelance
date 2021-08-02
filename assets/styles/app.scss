@@ -37,3 +37,47 @@ table {
         transform: translate(-50%, -50%);
     }
 }
+
+.modal-delete {
+    border: solid 1px #e3e6f0;
+    border-radius: 5px;
+    background: white;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-110%);
+    justify-content: space-evenly;
+    align-items: center;
+
+    button {
+        margin: 0 10px;
+        padding: 0.075rem 0.45rem;
+        font-size: 15px;
+    }
+
+    .arrow {
+        position: absolute;
+        display: block;
+        right: -5px;
+        width: 0.4rem;
+        height: 0.8rem;
+        color: transparent;
+    }
+
+    .arrow::before {
+        top: 0;
+        border-width: 0.4rem 0 0.4rem 0.4rem;
+        border-left-color: #fff;
+        position: absolute;
+        content: "";
+        border-style: solid;
+    }
+}
+
+.modal-delete.hide {
+    display: none;
+}
+.modal-delete.show {
+    display: flex;
+}

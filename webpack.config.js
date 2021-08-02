@@ -23,6 +23,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('area-demo', './assets/js/demo/chart-area-demo.js')
     .addEntry('pie-demo', './assets/js/demo/chart-pie-demo.js')
+    .addEntry('delete-modal', './assets/js/delete-modal.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

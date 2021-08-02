@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{# TODO: Changer title #}
+{% block title %}{{ 'page_title.project.new.main'|trans }}{% endblock %}
+
+{% block main_content %}
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">{{ project.name}} - Projet</h1>
+            <div>
+                <div class="d-inline-block position-relative">
+                    <button id="deleteButton" type="button" class="btn btn-danger position-relative">{{ 'common.button.delete'|trans }}</button>
+                    <div id="deleteModal" class="modal-delete shadow hide">
+                        <div class="arrow"></div>
+                        <button id="cancelButton" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Annuler"><i class="fas fa-times"></i></button>
+                        <form method="post" class="d-inline-block" name="delete-client" action="{{ path('app_project_delete', {'name': project.name}) }}">
+                            <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Comfirmer"><i class="fas fa-trash"></i></button>
+                            <input type="hidden" name="delete-action" value="{{ csrf_token('delete-action') }}">
+                        </form>
+                    </div>
+                </div>
+                <a href="{{ path('app_project_edit', {'name': project.name }) }}" class="btn btn-success">{{ 'common.button.edit'|trans }}</a>
+                <a href="{{ app.request.headers.get('referer') }}" class="btn btn-secondary ml-2">{{ 'common.button.back'|trans }}</a>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card-header font-weight-bold text-primary">Projet: {{ project.name }}</div>
+                    <div class="card-body">
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'project.name'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ project.name }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'project.createdAt'|trans }}</label>
+                                <input class="form-control" type="text" value="" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header font-weight-bold text-primary">Client: {{ project.client.name }}</div>
+                    <div class="card-body">
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.name'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ project.client.name }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.contact'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ project.client.contact }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label class="small mb-1" for="">{{ 'client.address'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ project.client.address }}" disabled>
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.email'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ project.client.email }}" disabled>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="">{{ 'client.phone'|trans }}</label>
+                                <input class="form-control" type="text" value="{{ project.client.phone }}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                 aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> Direct
+                        </span>
+                            <span class="mr-2">
+                            <i class="fas fa-circle text-success"></i> Social
+                        </span>
+                            <span class="mr-2">
+                            <i class="fas fa-circle text-info"></i> Referral
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">{{ 'A changer'|trans }}</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table border border-top-0 table-striped" id="dataTable" width="100%" cellspacing="0">
+                                <thead class="bg-primary text-white">
+                                <tr>
+                                    <th>{{ 'A changer'|trans }}</th>
+                                    <th>{{ 'A changer'|trans }}</th>
+                                    <th>{{ 'common.actions'|trans }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('pie-demo') }}
+    {{ encore_entry_script_tags('delete-modal') }}
+{% endblock %}

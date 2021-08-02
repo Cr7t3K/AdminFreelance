@@ -41,7 +41,7 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new")
+     * @Route("/new", name="new", priority="2")
      */
     public function new(Request $request): Response
     {
